@@ -8,7 +8,45 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    
+    <header class="hiddenHeader" id="headerContent">
+        <h1 id="userWelcome"></h1>
+        <nav>
+
+        </nav>
+    </header>
+
+    <div class="authenticationContainer" id="authentication">
+        <div class="authentication">
+            <div class="inputField">
+                <label for="username">username</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">password</label>
+                <input type="text" id="password" name="password" required>
+                <p id="createAccount">create an account</p>
+            </div>
+            <div class="buttonField">
+                <button onclick="loginButton()">connexion</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="databaseContent">
+        <table>
+            <thead>
+                <tr>
+                    <th>username</th>
+                    <th>password</th>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>phone</th>
+                    <th>private</th>
+                </tr>
+            </thead>
+            <tbody id="tableContent">
+            </tbody>
+        </table>
+    </div>
+
     <script src="assets/js/script.js"></script>
 </body>
 </html>

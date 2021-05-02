@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "username": "hello",
+        "password": "salut",
+        "name": "Mark",
+        "email": "mark-lefou@gmail.com",
+        "phone": "0625458756",
+        "private": false
+    },
+    {
+        "id": 2,
+        "username": "nonnon",
+        "password": "oui",
+        "name": "Vincent",
+        "email": "vinouvingt@gmail.com",
+        "phone": "0633175974",
+        "private": true
+    }
+]
