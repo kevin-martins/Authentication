@@ -3,6 +3,7 @@
 const headerContentDoc = document.getElementById('headerContent');
 const userWelcomeDoc = document.getElementById('userWelcome');
 const authenticationDoc = document.getElementById('authentication');
+const buttonDoc = document.getElementById('logButton');
 const usernameDoc = document.getElementById('username');
 const passwordDoc = document.getElementById('password');
 const tableDoc = document.getElementById('tableContent');
@@ -13,8 +14,8 @@ var data = [];
 //#region Get data from .json
 
 async function getData() {
-    const res = await fetch('assets/js/server.json');
-    return await res.json();
+    const data = await fetch('assets/js/server.json');
+    return await data.json();
 }
 
 //#endregion
@@ -56,7 +57,13 @@ const hidePrivateInfo = (hide, info) => {
 
 //#endregion
 
-const loginButton = () => {
+document.body.onkeydown = (keyPressed) => {
+    if (keyPressed.key == "Enter") {
+        login();
+    }
+}
+
+const login = () => {
     let logged = 0;
     getData().then((userInfos) => {
         for (let userInfo of userInfos) {
