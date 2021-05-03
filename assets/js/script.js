@@ -6,6 +6,7 @@ const authenticationDoc = document.getElementById('authentication');
 const usernameDoc = document.getElementById('username');
 const passwordDoc = document.getElementById('password');
 const tableDoc = document.getElementById('tableContent');
+var data = [];
 
 //#endregion
 
@@ -18,14 +19,22 @@ async function getData() {
 
 //#endregion
 
-//#region Parse Date and print table
+//#region Put JSON into variable then it on the Webpage
 
 getData().then((userInfos) => {
     for (let userInfo of userInfos) {
-        if (userInfo.name == "Mark") {
-            userInfo.name = "Sophie";
-        }
-        printUserInfo(userInfo);
+        data.push({
+            id: userInfo.id,
+            username: userInfo.username,
+            password: userInfo.password,
+            name: userInfo.name,
+            email: userInfo.email,
+            phone: userInfo.phone,
+            private: userInfo.private
+        });
+    }
+    for (let i = 0; i < data.length; i++) {
+        printUserInfo(data[i]);
     }
 })
 
@@ -39,11 +48,11 @@ const printUserInfo = userInfo => {
                                 <td>${hidePrivateInfo(hide, userInfo.phone)}</td>
                                 <td>${userInfo.private}</td>
                             </tr>`;
-}
+};
 
 const hidePrivateInfo = (hide, info) => {
     return hide? '*'.repeat(info.length):info;
-}
+};
 
 //#endregion
 
@@ -60,7 +69,7 @@ const loginButton = () => {
             alert("Error: invalid username or password");
         }
     })
-}
+};
 
 function printUserInformations(user) {
     console.log(user.name + " correctly logged!")
@@ -70,3 +79,13 @@ function printUserInformations(user) {
     authenticationDoc.style.visibility = "hidden";
     return 1;
 }
+
+// getData().push({
+//     "id": 1,
+//     "username": "hello",
+//     "password": "salut",
+//     "name": "Mark",
+//     "email": "mark-lefou@gmail.com",
+//     "phone": "0625458756",
+//     "private": false
+// });

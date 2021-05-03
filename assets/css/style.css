@@ -75,7 +75,8 @@ button:hover {
 .databaseContent {
     min-width: 700px;
     max-width: 1000px;
-    margin: 20px 50px;
+    margin: 20px auto;
+    padding: 0px 50px;
 }
 
 table {
@@ -94,6 +95,6 @@ tr {
 }
 
 .selected {
-    border: 10px red solid;
+    background-color: red;
     /* background: red; */
 }
